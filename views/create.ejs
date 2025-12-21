@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Skill | Skillwrap</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #e0e0e0;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 550px;
+      padding: 2rem;
+    }
+
+    .glass-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .glass-form h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      padding-bottom: 0.75rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    input, textarea {
+      padding: 0.9rem;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      resize: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #b0bec5;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    textarea {
+      height: 8rem;
+      line-height: 1.5;
+    }
+
+    input[type="file"] {
+      background: transparent;
+      border: none;
+      margin-top: 0.5rem;
+      color: #ddd;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.9rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+      background-color: #0056b3;
+    }
+
+    .error-msg {
+      color: #ffcccc;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form action="/create-skill" method="post" class="glass-form" enctype="multipart/form-data">
+      <h1>Share Your Skill on Skillwrap</h1>
+
+      <% if (typeof error !== 'undefined' && error) { %>
+        <p class="error-msg"><%= error %></p>
+      <% } %>
+
+      <div class="input-group">
+        <label for="skillname">Skill Name</label>
+        <input type="text" id="skillname" name="skillname" placeholder="e.g. Web Development" required>
+      </div>
+
+      <div class="input-group">
+        <label for="skilldesc">Describe Your Skill</label>
+        <textarea name="skilldesc" id="skilldesc" placeholder="Write a short description (max 100 chars)" maxlength="100"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="skilllevel">Skill Level</label>
+        <input type="text" id="skilllevel" name="skilllevel" placeholder="e.g. Professional, Semi-pro, Amateur" required>
+      </div>
+
+      <div class="input-group">
+        <label for="category">Availability</label>
+        <input type="text" id="category" name="category" placeholder="e.g. Mon, Wed, Fri evenings" required>
+      </div>
+
+      <div class="input-group">
+        <label for="file">Upload Image</label>
+        <input type="file" id="file" name="file" accept="image/*">
+      </div>
+
+      <button type="submit">Submit Skill</button>
+    </form>
+  </div>
+
+</body>
+</html>

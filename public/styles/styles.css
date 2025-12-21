@@ -1,0 +1,373 @@
+
+
+/* ✅ Skills Section */
+.skills {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  text-align: center;
+}
+
+.skills .section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.skills .section-subtitle {
+  color: #64748b;
+  margin-bottom: 3rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.skill-card img {
+  width: 100%;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.skill-card p {
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.skill-card .tag {
+  background: #2563eb;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+
+
+
+body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /*
+         * Hero Section Styling
+         * Using Flexbox to create a responsive, two-column layout.
+         */
+        .hero {
+            margin-top: 10vh;
+            margin-bottom: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            gap: 40px; /* Spacing between the text and image */
+            flex-wrap: wrap; /* Allows the columns to stack on mobile */
+        }
+
+        .hero-content {
+            flex: 1; /* Allows this column to grow */
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin: 0 0 2rem 0;
+            line-height: 1.6;
+            color: #d1d5db; /* Lighter color for readability */
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #0044cc, #007bff);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 70, 204, 0.3);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 70, 204, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+            transform: rotate(-2.5deg);
+            transition: transform 0.3s ease;
+            margin-left: 100px;
+        }
+        
+        .hero-image:hover {
+             transform: rotate(0deg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            filter: grayscale(10%);
+        }
+
+        /*
+         * Responsive Design
+         * Stack content and image for smaller screens.
+         */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .hero-image {
+                margin-top: 40px;
+                transform: rotate(0deg); /* No rotation on mobile */
+            }
+        }
+
+
+        
+        /* Testimonials Section Styling */
+       /* Testimonials Section */
+.testimonials {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.testimonials h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.testimonials p.subtitle {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 50px;
+}
+
+/* Grid */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    padding: 0 20px;
+}
+
+/* Card */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.testimonial-card.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.testimonial-card::before {
+    content: "“";
+    font-size: 4rem;
+    color: #3b82f6;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    opacity: 0.15;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Text */
+.testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: #e2e8f0;
+}
+
+/* Author */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid #3b82f6;
+}
+
+.author-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.author-info span {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+        /* Staggered effect for larger screens */
+        @media (min-width: 992px) {
+            .testimonial-card:nth-child(odd) {
+                transform: translateY(-20px);
+            }
+
+            .testimonial-card:nth-child(even) {
+                transform: translateY(20px);
+            }
+            
+            .testimonial-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        /* Keyframes for the fade-in animation */
+
+
+
+        /* New About Us section styling */
+.about-main {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1a2a33, #243b4a);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    min-height: calc(100vh - 60px);
+    text-align: center;
+}
+
+.about-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 7rem;
+    text-align: center;
+}
+
+.about-heading {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.about-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #d1d5db;
+    text-align: left;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #0044cc, #007bff);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 70, 204, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 70, 204, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

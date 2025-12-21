@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1f2735, #2c3a50, #2c5364);
+      min-height: 100vh;
+      padding: 15px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 35px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      color: #fff;
+      animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px 45px 12px 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-box input::placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .input-box input:focus {
+      border-color: #007bff;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .input-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: 0.3s;
+    }
+
+    .input-box i:hover {
+      color: #fff;
+    }
+
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin: 15px 0 20px;
+    }
+
+    .remember-forgot label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .remember-forgot a {
+      color: #00aaff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .remember-forgot a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+    }
+
+    .btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* Loading spinner */
+    .btn.loading::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 3px solid #fff;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    .or-separator {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .or-separator::before,
+    .or-separator::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+    .or-separator::before { margin-right: 10px; }
+    .or-separator::after { margin-left: 10px; }
+
+    .social-login {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #fff;
+    }
+
+    .social-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .google-btn { background: #4285F4; }
+    .github-btn { background: #24292e; }
+
+    .register-link {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    .register-link a {
+      color: #00aaff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .wrapper { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <form id="loginForm" action="/login" method="post" autocomplete="off">
+      <h1>Login</h1>
+
+          <% if (typeof error !== 'undefined' && error) { %>
+                <p style="color: #ffcccc; text-align: center; margin-bottom: 15px;"><%= error %></p>
+            <% } %>
+
+
+      <div class="input-box">
+        <input type="text" id="email" name="emailOrUsername" placeholder="Enter email or username" required>
+      </div>
+
+      <div class="input-box">
+        <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+        <i class='bx bx-hide' id="togglePassword"></i>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn" id="loginBtn">Login</button>
+
+      <div class="or-separator">or</div>
+
+      <div class="social-login">
+      <a href="/auth/google">
+        <button type="button" class="social-btn google-btn">
+          <svg viewBox="0 0 48 48"><path fill="currentColor" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37.6 24 37.6c-5.4 0-9.9-4.3-9.9-9.8 0-5.5 4.5-9.8 9.9-9.8 3.3 0 6.2 1.3 8.5 3.5l6.6-6.4C37.8 6.5 31.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.2-2.7-.5-4z"/></svg>
+          login with Google
+        </button>
+      </a>
+
+      <a href="/auth/github">
+        <button type="button" class="social-btn github-btn">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.496.998.108-.778.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.004-.404 1.021.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.766.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.802.576C20.563 21.82 24 17.311 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          login with GitHub
+        </button>
+      </a>
+      </div>
+
+      <div class="register-link">
+        <p>Don’t have an account? <a href="/sign">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+    const loginBtn = document.getElementById('loginBtn');
+    const loginForm = document.getElementById('loginForm');
+
+    togglePassword.addEventListener('click', () => {
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+      togglePassword.classList.toggle('bx-show');
+      togglePassword.classList.toggle('bx-hide');
+    });
+
+    loginForm.addEventListener('submit', () => {
+      loginBtn.classList.add('loading');
+      loginBtn.textContent = 'Logging in...';
+      loginBtn.disabled = true;
+    });
+  </script>
+  <img src="'https://lh3.googleusercontent.com/a/ACg8ocLTWASZyfnP2BPXCTjfRMAXTk-Uap8TPldHwB5AvvLNolhHJ_Q=s96-c" alt="">
+</body>
+</html>
+

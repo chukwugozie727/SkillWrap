@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles/styles.css"> -->
+    <style>
+        /* General styling for the main content */
+        .about-main {
+            padding: 80px 0;
+                  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            /* background-color: #f4f7f9; */
+            color: #34495e;
+            font-family: 'Poppins', sans-serif;
+            min-height: calc(100vh - 60px); /* Adjust based on header height */
+        }
+        
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .about-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+
+        .about-paragraph {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* You can use this for a call-to-action button or link if needed */
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        .head{
+                  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- This EJS tag includes the header partial file -->
+    <div class="head"><%- include("partials/header.ejs") %></div>
+
+    <main class="about-main">
+        <div class="about-container">
+            <h1 class="about-heading">About Skill Wrap</h1>
+            
+            <p class="about-paragraph">
+                Skill Wrap is a platform designed to help you organize and showcase your work. 
+                Whether you are a freelancer, a student, or a professional, our tools are built to streamline your workflow and present your skills in the best light.
+            </p>
+            
+            <p class="about-paragraph">
+                Our mission is to empower individuals by providing a seamless experience for managing projects, collaborating with others, and building a strong professional portfolio. We believe that your work deserves to be seen, and our platform makes that a reality.
+            </p>
+            
+            <a href="/dashboard" class="cta-button">Explore the Dashboard</a>
+        </div>
+    </main>
+
+</body>
+</html>

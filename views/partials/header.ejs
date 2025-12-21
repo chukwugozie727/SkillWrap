@@ -1,0 +1,309 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+        --primary-blue: #3b82f6; /* A vibrant blue for the sign up button */
+        --primary-indigo: #4f46e5; /* A deep indigo for the sign up button's gradient */
+        --dark-gray: #4b5563; /* A dark gray for the sign in button's border */
+        --light-gray: #f3f4f6; /* A light gray for the button text */
+        --text-white: #ffffff; /* White text color */
+        }
+
+
+        body{
+            background-color: #222327;
+        }
+        .navbar{
+         align-items: center;   
+         text-decoration: none;
+         margin-top: 20px;
+         padding: 20px;
+         margin-bottom: 0;
+         font-weight: 500;
+         font-size: 1.5rem;
+        }
+        .navdiv{
+            background: transparent;
+            color: white;
+            margin-top: 20px;
+            padding: 10px 25px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            font-weight: 600;
+            font-size: 30px;
+            color: #0044cc, #007bff;
+            text-decoration: none;
+        }
+        .li{
+            font-size: 1.7rem;
+            display: inline-block;
+            margin-right: 40px;
+            cursor: pointer;
+        }
+        .li:hover{
+            color: var(--primary-indigo);
+        }
+        .li:hover::after{
+            width: 100%;
+        }
+         .ul a{
+            background-color: black;
+            padding: 8px 12px;
+            position: relative;
+            border-radius: 10px;
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+        }
+        .signup-btn{
+            background: linear-gradient(90deg, #3A8DFF, #105bb5); 
+            background-color: rgba(58, 141, 255, 0.2); 
+            backdrop-filter: blur(5px);
+            /* Optional: For older browsers like Safari, use the vendor prefix. */
+            -webkit-backdrop-filter: blur(5px); 
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-image: linear-gradient(to right, var(--primary-blue), var(--primary-indigo));
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            color: var(--text-white);
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+}
+
+/* Style for the 'Sign up' button */
+
+.signup-btn:hover {
+  background-image: linear-gradient(to right, #2563eb, #4338ca);
+  transform: translateY(-2px); 
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Style for the 'Sign in' button */
+.signin-btn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: var(--text-white);
+  font-weight: 600;
+  border: 2px solid var(--dark-gray);
+  transition: all 0.3s ease-in-out;
+}
+
+
+.signin-btn:hover {
+  border-color: var(--text-white); 
+  transform: translateY(-2px); 
+  color: var(--primary-indigo);
+}
+
+#me{
+    background: transparent;
+}
+
+.profile_pic{
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="navdiv">
+        <a href="#" class="logo">skill wrap</a>
+        <ul class="ul">
+            <li class="li">Home</li>
+            <li class="li"><a href="#about" id="me">About</a></li>
+            <li class="li">Contact</li>
+            <% if (!user) { %>
+              <a href="/sign" class="signup-btn" id=" a">signup</a>
+              <a href="/login" class="signin-btn" id="a">signin</a>
+            <% } else { %>
+                <a href="/profile" class="signup-btn" id="a">Profile</a>
+                 <img src="<%= user.img_url %>" alt="profile pic" class="profile_pic">
+                <!-- <a href="/logout" class="signin-btn" id="a">Logout</a> --
+           <% } %>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Wrap</title>
+    <style>
+        :root {
+            --primary-blue: #3b82f6; /* A vibrant blue for the sign up button */
+            --primary-indigo: #4f46e5; /* A deep indigo for the sign up button's gradient */
+            --dark-gray: #4b5563; /* A dark gray for the sign in button's border */
+            --light-gray: #f3f4f6; /* A light gray for the button text */
+            --text-white: #ffffff; /* White text color */
+            --bg-dark: #222327;
+            --box-shadow-light: rgba(0, 0, 0, 0.8);
+            --box-shadow-strong: rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            padding: 20px;
+            margin: 20px auto 0;
+            /* max-width: 1200px; Constrain the navbar width for a cleaner look */
+            width: 95%;
+        }
+
+        .navdiv {
+            background: transparent;
+            color: var(--text-white);
+            padding: 10px 25px;
+            box-shadow: 0 3px 8px var(--box-shadow-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 30px;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .ul {
+            display: flex;
+            align-items: center;
+            list-style: none; /* Remove bullet points */
+            margin: 0;
+            padding: 0;
+            gap: 20px; /* A modern way to add space between list items and buttons */
+        }
+
+        .li a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--text-white);
+            padding: 8px 12px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .li a:hover {
+            color: var(--primary-indigo);
+        }
+        
+        /* General button styles */
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            text-align: center;
+            white-space: nowrap; /* Prevents text from wrapping on small screens */
+        }
+
+        /* Style for the 'Sign up' button */
+        .signup-btn {
+            background-image: linear-gradient(to right, var(--primary-blue), var(--primary-indigo));
+            box-shadow: 0 4px 6px -1px var(--box-shadow-strong), 0 2px 4px -2px var(--box-shadow-strong);
+            color: var(--text-white);
+        }
+
+        .signup-btn:hover {
+            background-image: linear-gradient(to right, #2563eb, #4338ca);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px var(--box-shadow-strong), 0 4px 6px -4px var(--box-shadow-strong);
+        }
+
+        /* Style for the 'Sign in' button */
+        .signin-btn {
+            background-color: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--dark-gray);
+        }
+
+        .signin-btn:hover {
+            border-color: var(--text-white);
+            transform: translateY(-2px);
+            color: var(--primary-indigo);
+        }
+
+        .profile_pic {
+            height: 40px; /* Reduced size for better visual balance */
+            width: 40px;
+            border-radius: 50%; /* Use 50% for a perfect circle */
+            border: 2px solid var(--primary-blue);
+            object-fit: cover; /* Ensures the image doesn't get distorted */
+            margin-left: 10px; /* Add some space to the left of the image */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="navdiv">
+        <a href="/" class="logo">skill wrap</a>
+        <ul class="ul">
+            <li class="li"><a href="/">Home</a></li>
+            <li class="li"><a href="#about" id="me">About</a></li>
+            <li class="li"><a href="/skills">Skills</a></li>
+            
+            <% if (!user) { %>
+                <a href="/signup" class="nav-btn signup-btn">signup</a>
+                <a href="/login" class="nav-btn signin-btn">signin</a>
+            <% } else { %>
+                <a href="/profile" class="nav-btn signup-btn">Profile</a>
+                <a href="/logout" class="nav-btn signin-btn">Logout</a>
+                      <div class="profile" onclick="toggleDropdown()">
+                <% if (user) { %>
+        <% if (user.photo) { %>
+          <a href="/dashboard"><img src="<%= user.photo %>" alt="Profile"></a>
+        <% } else { %>
+        <a href="/dashboard"><div class="avatar"><%= user.username.charAt(0).toUpperCase() %></div></a>
+        <% } %>
+        <a href="/dashboard"><div class="username"><%= user.username %></div></a>
+      <% } %>
+            <% } %>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
